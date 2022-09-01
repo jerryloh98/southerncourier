@@ -23,7 +23,7 @@
             <br>
             Email: <input type="text" name="email" required>
             <br>
-            Phone Number: <input  type="tel" name="phone" minlength="8" maxlength="11" required>
+            Phone Number: <input  type="number" name="phone" minlength="8" maxlength="11" required>
             <br>
             Username: <input type="text" name="username" required>
             <br>

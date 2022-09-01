@@ -34,9 +34,25 @@
     <?php
     if (isset($_POST['Submit'])) {
         if (!empty($_POST['name']) && !empty($_POST['gender']) && !empty($_POST['contact']) && !empty($_POST['username']) && !empty($_POST['password']))
-            newStaff();
+            checkusrname();
         else
             echo '<script>alert("Please Fill In All Values!")</script>';
+    }
+
+    function checkusrname()
+    {
+        include 'dbconnect.php';
+        $username = $_POST['username'];
+        $sql = "SELECT * FROM staff WHERE username = '$username'";
+
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) != 0) {
+            echo '<script>alert("Username already exists!!")</script>';
+        } else 
+		if (isset($_POST['Submit'])) {
+            newStaff();
+        }
     }
 
     function newStaff()
